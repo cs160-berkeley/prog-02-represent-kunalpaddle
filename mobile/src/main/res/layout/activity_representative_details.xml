@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:weightSum="1">-->
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SENATOR"
+        android:layout_marginTop="20dp"
+        android:id="@+id/representativeTitle"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@+id/representativeName"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marco Rubio"
+        android:id="@+id/representativeName"
+        android:layout_gravity="right"
+        android:textSize="45sp"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/representativeTitle"
+        android:layout_toRightOf="@+id/representative_icon"
+        />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft ="20dp"
+        android:id="@+id/representative_icon"
+        android:src="@drawable/rep_marco_rubio"
+        android:layout_alignTop="@+id/representativeName"
+        android:layout_alignBottom="@+id/representativeName" />
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignLeft="@+id/representative_icon"
+
+        android:id="@+id/badge"
+        android:layout_below="@+id/representativeName"
+        android:src = "@drawable/republican_badge_large"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:id="@+id/calendarIcon"
+        android:src = "@drawable/icon_calendar"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/badge"
+        android:layout_below="@id/badge"
+        android:layout_marginTop="10dp"
+        android:layout_alignStart="@+id/badge" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Term ends Jan 1 2017"
+        android:id="@+id/termEndDate"
+        android:textSize="15sp"
+        android:layout_marginLeft="15dp"
+        android:layout_alignBottom="@+id/calendarIcon"
+        android:layout_toRightOf="@+id/calendarIcon"
+         />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="COMMITTEES"
+            android:id="@+id/committees_label"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/calendarIcon"
+            android:layout_centerHorizontal="true" />
+
+
+    <View
+        android:layout_width="300dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="1dp"
+        android:layout_centerHorizontal="true"
+        android:background="#605A5A"
+        android:id = "@+id/committeesDivider"
+        android:layout_below="@id/committees_label"/>
+
+     <LinearLayout
+         android:orientation="vertical"
+         android:layout_width="300dp"
+         android:layout_height="wrap_content"
+         android:id="@+id/committees_list"
+         android:layout_below="@id/committeesDivider"
+         android:layout_alignLeft="@id/committeesDivider"
+         ></LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="BILLS"
+            android:id="@+id/billsLabel"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/committees_list"
+            android:layout_centerHorizontal="true" />
+
+
+        <View
+            android:layout_width="300dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="1dp"
+            android:layout_centerHorizontal="true"
+            android:background="#605A5A"
+            android:id = "@+id/billsDivider"
+            android:layout_below="@id/billsLabel"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/bills_list"
+            android:layout_below="@id/billsDivider"
+            android:layout_alignLeft="@id/billsDivider"
+            ></LinearLayout>
+    </RelativeLayout>
+    </ScrollView>
+<!--</RelativeLayout>-->
