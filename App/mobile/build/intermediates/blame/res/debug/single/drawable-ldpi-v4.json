@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-ldpi-v4/badge_republican.png",
+        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-ldpi/badge_republican.png"
+    },
+    {
+        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-ldpi-v4/republican_badge_large.png",
+        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-ldpi/republican_badge_large.png"
+    },
+    {
+        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-ldpi-v4/icon_calendar.png",
+        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-ldpi/icon_calendar.png"
+    },
+    {
+        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-ldpi-v4/badge_democrat.png",
+        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-ldpi/badge_democrat.png"
+    },
+    {
+        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-ldpi-v4/rep_marco_rubio.png",
+        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-ldpi/rep_marco_rubio.png"
+    },
+    {
+        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-ldpi-v4/icon_twitter.png",
+        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-ldpi/icon_twitter.png"
+    },
+    {
+        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-ldpi-v4/forward_button.png",
+        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-ldpi/forward_button.png"
+    }
+]
