@@ -23,7 +23,7 @@ public class Senator extends Representative {
     private Image picture;
 
 
-    public Senator(String name, String party, String state, Date termEndDate, Bitmap picture) {
+    public Senator(String name, String party, String state, String termEndDate, Bitmap picture) {
         super(name, state, termEndDate, picture);
     }
 

@@ -3,4 +3,12 @@
 
     <string name="sample_tweet">.@WhiteHouse: “If we make it easier for more foreign visitors to visit... (it) grows
 the #economy.” </string>
+
+    <string name= "sunlight_api_key">822043263f5148a8bade8c122ed0e36f</string>
+    <string name ="representKey" >AIzaSyBR6nqqMbsAgMPZiw879P6NBIgga0963ic</string>
+    <string name = "representServerKey">AIzaSyDaLxysLYSKX1sSScIiN9AC2WQ7T2N5Uws</string>
+
+    <string name="google_app_id">default-demo-app-54a28</string>
+
+
 </resources>

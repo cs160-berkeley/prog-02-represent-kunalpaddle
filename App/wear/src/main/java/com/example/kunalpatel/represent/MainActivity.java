@@ -3,7 +3,6 @@ package com.example.kunalpatel.represent;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -18,16 +17,17 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.Toast;
 
+import org.apache.commons.lang3.SerializationUtils;
+
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class MainActivity extends FragmentActivity {
 
     private ViewPager mViewPager;
     private DismissOverlayView mDismissOverlayView;
     private GestureDetector mGestureDetector;
-    private ArrayList<Fragment> myReps;
+    private ArrayList<Fragment> repFragments;
     private Resources res;
     private Context context;
     private Bitmap marcoPic;
@@ -56,10 +56,10 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_representatives);
 
 
-        Representative marcoRubio = new Representative("Marco Rubio", "Florida", "Republican");
-        final BitmapFactory.Options bitmapOptions =new BitmapFactory.Options();
-        int marcoPictureId= getResources().getIdentifier("@drawable/rep_marco_rubio", null, getApplicationContext().getPackageName());
-        marcoPic = BitmapFactory.decodeResource(getApplicationContext().getResources(),marcoPictureId,bitmapOptions);
+//        Representative marcoRubio = new Representative("Marco Rubio", "Florida", "Republican");
+//        final BitmapFactory.Options bitmapOptions =new BitmapFactory.Options();
+//        int marcoPictureId= getResources().getIdentifier("@drawable/rep_marco_rubio", null, getApplicationContext().getPackageName());
+//        marcoPic = BitmapFactory.decodeResource(getApplicationContext().getResources(),marcoPictureId,bitmapOptions);
 
 
         //Mock counties
@@ -69,8 +69,12 @@ public class MainActivity extends FragmentActivity {
         mViewPager = (ViewPager) findViewById(R.id.pager);
         res = getResources();
 
-        ArrayList<Fragment> repFragments = new ArrayList<Fragment>();
-        mockFragments(repFragments);
+
+        repFragments = new ArrayList<Fragment>();
+//        mockFragments(repFragments);
+
+        populateFragments(repFragments);
+//        addVoteFragment();
 
         FragmentAdapter adapter = new FragmentAdapter(getSupportFragmentManager());
         for (Fragment frag: repFragments) {
@@ -99,9 +103,7 @@ public class MainActivity extends FragmentActivity {
             public void onPageScrollStateChanged(int state) {
             }
         });
-
         mGestureDetector = new GestureDetector(this, new LongPressListener());
-
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mSensorManager.registerListener(mSensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
         mAccel = 0.00f;
@@ -110,65 +112,24 @@ public class MainActivity extends FragmentActivity {
 
     }
 
-    private void mockFragments(ArrayList<Fragment> repFragments) {
-        Representative marcoRubio = new Representative("Marco Rubio", "Florida", "Republican");
-        marcoRubio.setPicture(marcoPic);
-        marcoRubio.setTermEndDate(new Date());
-        marcoRubio.setTweet("Sign up to be part of our team. Because the future of America — and the conservative movement — is at stake.");
+    private void populateFragments(ArrayList<Fragment> repFragments) {
+        DataWrapper wrapper = (DataWrapper) getIntent().getSerializableExtra("REPRESENTATIVES");
+        ArrayList<Representative> reps  = wrapper.getRepresentatives();
 
-        Representative marcoRoboto = new Representative("Marco Roboto", "Florida", "Republican");
-        marcoRoboto.setTermEndDate(new Date());
-        marcoRoboto.setPicture(marcoPic);
-        marcoRoboto.setTweet("Lets dispel this fiction that Barack Obama does not know what he’s doing. He knows exactly what he’s doing…");
+        for(int i = 0; i < reps.size(); i++){
 
-        Representative marcoPolo = new Representative("Mark O Polo", "Florida", "Democrat");
-        marcoPolo.setPicture(marcoPic);
-        marcoPolo.setTermEndDate(new Date());
-        marcoPolo.setTweet("You cannot give up on the American dream.");
+            RepresentativeFragment representativeFragment = new RepresentativeFragment();
+            representativeFragment.setRepresentative(reps.get(i));
+            repFragments.add(representativeFragment);
+        }
+        String county = wrapper.getCounty();
 
+        VoteFragment voteFragment = new VoteFragment();
+        voteFragment.setCounty(county);
+        voteFragment.setRomneyPercentage(wrapper.getRomneyVote());
+        voteFragment.setObamaPercentage(wrapper.getObamaVote());
 
-        RepresentativeFragment marcoRubioFragment = new RepresentativeFragment();
-        RepresentativeFragment marcoRobotoFragment = new RepresentativeFragment();
-        RepresentativeFragment marcoPoloFragment = new RepresentativeFragment();
-        marcoRubioFragment.setRepresentative(marcoRubio);
-        marcoRobotoFragment.setRepresentative(marcoRoboto);
-        marcoPoloFragment.setRepresentative(marcoPolo);
-
-        repFragments.add(marcoRubioFragment);
-        repFragments.add(marcoRobotoFragment);
-        repFragments.add(marcoPoloFragment);
-
-
-        //Vote view
-
-        VoteFragment vote = new VoteFragment();
-        vote.setCounty(sampleCounties.get ((int)( Math.random()*sampleCounties.size())));
-        int obama =(int)  (Math.random() *100);
-        int romney  = (100- obama);
-
-        vote.setObamaPercentage(obama);
-        vote.setRomneyPercentage(romney);
-
-        repFragments.add(vote);
-
-    }
-
-    public void addVoteFragment() {
-        VoteFragment vote = new VoteFragment();
-        vote.setCounty(sampleCounties.get ((int)( Math.random()*sampleCounties.size())));
-        int obama =(int)  (Math.random() *100);
-        int romney  = (100- obama);
-
-        vote.setObamaPercentage(obama);
-        vote.setRomneyPercentage(romney);
-
-        myReps.add(vote);
-    }
-
-    public int getResourceIdFromUri(String uri) {
-
-        return res.getIdentifier(uri, null, context.getPackageName());
-
+        repFragments.add(voteFragment);
     }
 
 
@@ -187,7 +148,12 @@ public class MainActivity extends FragmentActivity {
         }
         @Override
         public boolean onSingleTapUp(MotionEvent event) {
-            new WatchToPhoneService("/OPEN_DETAIL_VIEW", "").sendMessage(context);
+            Representative currentRep =
+                    ((RepresentativeFragment) ((FragmentAdapter) mViewPager.getAdapter()).getCurrentFragment()).getRep();
+            DataWrapper payload = new DataWrapper(currentRep);
+            byte[] payloadBytes = SerializationUtils.serialize(payload);
+            new WatchToPhoneService("/OPEN_DETAIL_VIEW", payloadBytes).sendMessage(context);
+
             return true;
         }
 //        @Override
@@ -215,7 +181,6 @@ public class MainActivity extends FragmentActivity {
     private final SensorEventListener mSensorListener = new SensorEventListener() {
 
         public void onSensorChanged(SensorEvent se) {
-            System.out.println("SENSOR TRIGGERED");
             float x = se.values[0];
             float y = se.values[1];
             float z = se.values[2];
@@ -227,10 +192,7 @@ public class MainActivity extends FragmentActivity {
                 int zip = (int) (Math.random()*100000);
                 Toast toast = Toast.makeText(getApplicationContext(), "Zip Code changed to : " + zip, Toast.LENGTH_LONG);
 //              new WatchToPhoneService("/CHANGE_ZIP", intToBytes(zip)).sendMessage(context);
-
                 toast.show();
-
-//
 //                mAccel = 0;
 //                mAccelCurrent = 0;
 //                mAccelLast = 0;
@@ -258,4 +220,67 @@ public class MainActivity extends FragmentActivity {
         mSensorManager.unregisterListener(mSensorListener);
         super.onPause();
     }
+
+
+    private void mockFragments(ArrayList<Fragment> repFragments) {
+        Representative marcoRubio = new Representative("Marco Rubio", "Florida", "Republican");
+        marcoRubio.setPicture(marcoPic);
+        marcoRubio.setTermEndDate("");
+        marcoRubio.setTweet("Sign up to be part of our team. Because the future of America — and the conservative movement — is at stake.");
+
+        Representative marcoRoboto = new Representative("Marco Roboto", "Florida", "Republican");
+        marcoRoboto.setTermEndDate("");
+        marcoRoboto.setPicture(marcoPic);
+        marcoRoboto.setTweet("Lets dispel this fiction that Barack Obama does not know what he’s doing. He knows exactly what he’s doing…");
+
+        Representative marcoPolo = new Representative("Mark O Polo", "Florida", "Democrat");
+        marcoPolo.setPicture(marcoPic);
+        marcoPolo.setTermEndDate("");
+        marcoPolo.setTweet("You cannot give up on the American dream.");
+
+
+        RepresentativeFragment marcoRubioFragment = new RepresentativeFragment();
+        RepresentativeFragment marcoRobotoFragment = new RepresentativeFragment();
+        RepresentativeFragment marcoPoloFragment = new RepresentativeFragment();
+        marcoRubioFragment.setRepresentative(marcoRubio);
+        marcoRobotoFragment.setRepresentative(marcoRoboto);
+        marcoPoloFragment.setRepresentative(marcoPolo);
+
+        repFragments.add(marcoRubioFragment);
+        repFragments.add(marcoRobotoFragment);
+        repFragments.add(marcoPoloFragment);
+
+
+        //Vote view
+
+        VoteFragment vote = new VoteFragment();
+        vote.setCounty(sampleCounties.get ((int)( Math.random()*sampleCounties.size())));
+        int obama =(int)  (Math.random() *100);
+        int romney  = (100- obama);
+
+        vote.setObamaPercentage(""+obama);
+        vote.setRomneyPercentage(""+romney);
+
+        repFragments.add(vote);
+
+    }
+
+    public void addVoteFragment() {
+        VoteFragment vote = new VoteFragment();
+        vote.setCounty(sampleCounties.get ((int)( Math.random()*sampleCounties.size())));
+        int obama =(int)  (Math.random() *100);
+        int romney  = (100- obama);
+
+        vote.setObamaPercentage(""+obama);
+        vote.setRomneyPercentage("" + romney);
+
+        repFragments.add(vote);
+    }
+
+    public int getResourceIdFromUri(String uri) {
+
+        return res.getIdentifier(uri, null, context.getPackageName());
+
+    }
+
 }

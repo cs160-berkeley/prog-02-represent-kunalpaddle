@@ -60,7 +60,7 @@
         android:layout_below="@+id/romneyImage"
         android:textSize="10sp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="11dp"
         android:layout_alignLeft="@+id/romneyImage"
         android:textColor="#E0162B"
         android:id="@+id/romneyLabel"
@@ -72,7 +72,7 @@
         android:layout_below="@+id/obamaImage"
         android:layout_alignLeft="@+id/obamaImage"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="14dp"
 
         android:textSize="10sp"
 
@@ -85,28 +85,25 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/romneyLabel"
         android:textSize="15sp"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="12dp"
         android:layout_alignLeft="@+id/romneyImage"
         android:id="@+id/romneyVote"
         android:textColor="#E0162B"
 
-        android:text="00%"/>
+        android:text="00.0%"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/obamaLabel"
         android:layout_alignLeft="@+id/obamaImage"
         android:id="@+id/obamaVote"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="20dp"
-
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="12dp"
         android:textSize="15sp"
 
         android:textColor="#232066"
 
-        android:text="XX %"/>
-
-
+        android:text="00.0%"/>
 
 </RelativeLayout>

@@ -39,8 +39,8 @@
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
     <color name="colorAccent">#C43140</color>
-    <color name="colorPrimary">#F50018</color>
-    <color name="colorPrimaryDark">#E0162B</color>
+    <color name="colorPrimary">#E0162B</color>
+    <color name="colorPrimaryDark">#C43140</color>
     <color name="common_action_bar_splitter">#d2d2d2</color>
     <color name="common_google_signin_btn_text_dark_default">@android:color/white</color>
     <color name="common_google_signin_btn_text_dark_disabled">#1F000000</color>
@@ -317,6 +317,7 @@
     <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
     <string name="create_calendar_title">Create calendar event</string>
     <string name="decline">Decline</string>
+    <string name="google_app_id">default-demo-app-54a28</string>
     <string name="mr_media_route_button_content_description">Cast</string>
     <string name="mr_media_route_chooser_searching">Searching for devices\u2026</string>
     <string name="mr_media_route_chooser_title">Connect to device</string>
@@ -330,11 +331,14 @@
     <string name="mr_user_route_category_name">Devices</string>
     <string name="place_autocomplete_clear_button">Clear search</string>
     <string name="place_autocomplete_search_hint">Search</string>
+    <string name="representKey">AIzaSyBR6nqqMbsAgMPZiw879P6NBIgga0963ic</string>
+    <string name="representServerKey">AIzaSyDaLxysLYSKX1sSScIiN9AC2WQ7T2N5Uws</string>
     <string name="sample_tweet">.@WhiteHouse: “If we make it easier for more foreign visitors to visit... (it) grows
 the #economy.” </string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>
     <string name="store_picture_title">Save image</string>
+    <string name="sunlight_api_key">822043263f5148a8bade8c122ed0e36f</string>
     <string name="wallet_buy_button_place_holder">Buy with Google</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>

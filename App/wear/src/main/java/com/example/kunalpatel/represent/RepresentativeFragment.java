@@ -29,7 +29,17 @@ public class RepresentativeFragment extends Fragment {
     private Resources res;
     private Context context;
     private Bitmap republicanBadge, democratBadge;
+
+    public Representative getRep() {
+        return rep;
+    }
+
+    public void setRep(Representative rep) {
+        this.rep = rep;
+    }
+
     private Representative rep;
+    private TextView title;
 
 
     public void setRepresentative(Representative rep ) {
@@ -47,6 +57,7 @@ public class RepresentativeFragment extends Fragment {
         picture = (ImageView) repView.findViewById(R.id.representative_icon);
         repName = (TextView) repView.findViewById(R.id.representativeName);
         badge = (ImageView) repView.findViewById(R.id.badge);
+        title = (TextView) repView.findViewById(R.id.representativeTitle);
 
         if (rep.getParty().equals(Representative.PARTY_REPUBLICAN)) {
             badge.setImageBitmap(republicanBadge);
@@ -58,10 +69,14 @@ public class RepresentativeFragment extends Fragment {
 
         repName.setText(rep.getName());
         picture.setImageBitmap(rep.getPicture());
-
+        if(rep.getChamber().equalsIgnoreCase("senate")){
+            title.setText("SENATOR");
+        } else{
+            title.setText("REPRESENTATIVE");
+        }
+//        picture.setImageBitmap(rep.getPicture());
         return repView;
     }
-
 
 
     private Bitmap downscaleBitmapUsingDensities(final int sampleSize,final int imageResId)

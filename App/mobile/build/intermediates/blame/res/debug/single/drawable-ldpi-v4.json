@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-ldpi-v4/democrat_badge_large.png",
+        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-ldpi/democrat_badge_large.png"
+    },
+    {
         "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-ldpi-v4/badge_republican.png",
         "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-ldpi/badge_republican.png"
     },
@@ -22,6 +26,10 @@
     {
         "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-ldpi-v4/icon_twitter.png",
         "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-ldpi/icon_twitter.png"
+    },
+    {
+        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-ldpi-v4/represent_logo.png",
+        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-ldpi/represent_logo.png"
     },
     {
         "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-ldpi-v4/forward_button.png",

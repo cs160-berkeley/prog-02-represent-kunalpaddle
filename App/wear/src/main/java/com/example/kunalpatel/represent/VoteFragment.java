@@ -18,10 +18,10 @@ public class VoteFragment extends Fragment {
 
     private String obamaPercentage, romneyPercentage, county;
 
-    public void setObamaPercentage(int percentage) {
+    public void setObamaPercentage(String percentage) {
         this.obamaPercentage = ""+percentage+"%";
     }
-    public void setRomneyPercentage(int percentage) {
+    public void setRomneyPercentage(String percentage) {
         this.romneyPercentage = ""+percentage+"%";
     }
 

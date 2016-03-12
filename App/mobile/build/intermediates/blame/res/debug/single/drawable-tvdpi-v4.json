@@ -24,6 +24,10 @@
         "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-tvdpi/common_plus_signin_btn_icon_light_disabled.9.png"
     },
     {
+        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-tvdpi-v4/represent_logo.png",
+        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-tvdpi/represent_logo.png"
+    },
+    {
         "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-tvdpi-v4/common_google_signin_btn_icon_dark_pressed.9.png",
         "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-tvdpi/common_google_signin_btn_icon_dark_pressed.9.png"
     },
@@ -90,6 +94,10 @@
     {
         "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-tvdpi-v4/common_plus_signin_btn_text_light_normal.9.png",
         "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable-tvdpi/common_plus_signin_btn_text_light_normal.9.png"
+    },
+    {
+        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-tvdpi-v4/democrat_badge_large.png",
+        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-tvdpi/democrat_badge_large.png"
     },
     {
         "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-tvdpi-v4/rep_marco_rubio.png",

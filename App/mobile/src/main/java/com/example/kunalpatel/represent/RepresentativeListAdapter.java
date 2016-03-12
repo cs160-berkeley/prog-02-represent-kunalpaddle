@@ -1,9 +1,12 @@
 package com.example.kunalpatel.represent;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -27,6 +32,8 @@ public class RepresentativeListAdapter  extends ArrayAdapter<Representative> {
 
     private final Context context;
     private final ArrayList<Representative> representativeList;
+    private ImageView repIcon, badge;
+    private TextView latestTweet, repName, repTitle;
 
     public RepresentativeListAdapter(Context context, ArrayList<Representative> representativeList) {
 
@@ -48,10 +55,11 @@ public class RepresentativeListAdapter  extends ArrayAdapter<Representative> {
         rowView = inflater.inflate(R.layout.representative_item, parent, false);
 
         // 3. Get icon,title & counter views from the rowView
-        ImageView repIcon = (ImageView) rowView.findViewById(R.id.item_icon);
-        TextView latestTweet = (TextView) rowView.findViewById(R.id.tweetTextView);
-        TextView repName = (TextView) rowView.findViewById(R.id.representativeName);
-        ImageView badge = (ImageView) rowView.findViewById(R.id.badge);
+        repIcon = (ImageView) rowView.findViewById(R.id.item_icon);
+        latestTweet = (TextView) rowView.findViewById(R.id.tweetTextView);
+        repName = (TextView) rowView.findViewById(R.id.representativeName);
+        badge = (ImageView) rowView.findViewById(R.id.badge);
+        repTitle = (TextView) rowView.findViewById(R.id.representativeTitle);
 
         // 4. Set icon a
         Representative rep = representativeList.get(position);
@@ -67,9 +75,20 @@ public class RepresentativeListAdapter  extends ArrayAdapter<Representative> {
             badge.setImageBitmap(bm);
         }
 
+        if (rep.getChamber().equalsIgnoreCase("senate")){
+            repTitle.setText("SEN.");
+        }
+        else{
+            repTitle.setText("REP.");
+        }
+
         repName.setText(rep.getName());
-        repIcon.setImageBitmap(rep.getPicture());
+
+        Picasso.with(context).load(rep.getImageUrl()).centerCrop().fit().into(repIcon);
+
         latestTweet.setText(rep.getTweet());
+
+        final Representative repToSend = rep;
 
 
         ImageButton infoButton = (ImageButton) rowView.findViewById(R.id.infoButton);
@@ -77,12 +96,47 @@ public class RepresentativeListAdapter  extends ArrayAdapter<Representative> {
             @Override
             public void onClick(View v) {
                 Intent openRepresentativeDetails = new Intent(context, RepresentativeDetails.class);
+                openRepresentativeDetails.putExtra("REPRESENTATIVES", new DataWrapper(repToSend));
                 context.startActivity(openRepresentativeDetails);
             }
         });
+        final Representative repFinal  = rep;
 
+        ImageButton webButton = (ImageButton) rowView.findViewById(R.id.websiteButton);
+        webButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = repFinal.getWebsite();
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                getContext().startActivity(i);
+            }
+        });
+
+        ImageButton mailButton = (ImageButton) rowView.findViewById(R.id.emailButton);
+        mailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(context)
+                        .setTitle(repFinal.getName()+"'s E-mail Address" )
+                        .setMessage(repFinal.getEmail())
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // continue with delete
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+            }
+        });
 
         return rowView;
+    }
+
+
+    public void openWebsite(String url) {
+
+
     }
 
     /*
@@ -98,6 +152,5 @@ public class RepresentativeListAdapter  extends ArrayAdapter<Representative> {
         scaledBitmap.setDensity(Bitmap.DENSITY_NONE);
         return scaledBitmap;
     }
-
 
 }

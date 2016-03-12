@@ -14,6 +14,8 @@ import com.google.android.gms.wearable.NodeApi;
 import com.google.android.gms.wearable.Wearable;
 import com.google.android.gms.wearable.WearableListenerService;
 
+import org.apache.commons.lang3.SerializationUtils;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
@@ -67,12 +69,13 @@ public class PhoneToWatchService extends WearableListenerService implements Goog
         }
 
         if (path.equals("/OPEN_DETAIL_VIEW")){
-            Intent openRepresentativeDetails = new Intent(getApplicationContext(), RepresentativeDetails.class);
 
+            Intent openRepresentativeDetails = new Intent(getApplicationContext(), RepresentativeDetails.class);
+            DataWrapper wrapper = (DataWrapper) SerializationUtils.deserialize(message);
+            openRepresentativeDetails.putExtra("REPRESENTATIVES",wrapper);
             openRepresentativeDetails.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             startActivity(openRepresentativeDetails);
-
         }
 
     }

@@ -8,12 +8,12 @@
         "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-xxxhdpi/abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/icon_twitter.png",
-        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-xxxhdpi/icon_twitter.png"
-    },
-    {
         "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_menu_moreoverflow_mtrl_alpha.png",
         "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-xxxhdpi/abc_ic_menu_moreoverflow_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/icon_twitter.png",
+        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-xxxhdpi/icon_twitter.png"
     },
     {
         "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_015.png",
@@ -56,6 +56,10 @@
         "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-xxxhdpi/ic_info_outline_black_24dp.png"
     },
     {
+        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/represent_logo.png",
+        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-xxxhdpi/represent_logo.png"
+    },
+    {
         "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png",
         "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-xxxhdpi/abc_ic_menu_selectall_mtrl_alpha.png"
     },
@@ -80,12 +84,12 @@
         "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-xxxhdpi/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/rep_marco_rubio.png",
-        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-xxxhdpi/rep_marco_rubio.png"
-    },
-    {
         "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_menu_share_mtrl_alpha.png",
         "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-xxxhdpi/abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/rep_marco_rubio.png",
+        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-xxxhdpi/rep_marco_rubio.png"
     },
     {
         "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/places_ic_search.png",
@@ -122,6 +126,10 @@
     {
         "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/places_ic_clear.png",
         "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/res/drawable-xxxhdpi/places_ic_clear.png"
+    },
+    {
+        "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/democrat_badge_large.png",
+        "source": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/src/main/res/drawable-xxxhdpi/democrat_badge_large.png"
     },
     {
         "merged": "/Users/KunalPatel/AndroidStudioProjects/Represent/mobile/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_btn_check_to_on_mtrl_015.png",

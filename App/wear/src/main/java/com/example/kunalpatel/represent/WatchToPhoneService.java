@@ -13,6 +13,8 @@ import com.google.android.gms.wearable.NodeApi;
 import com.google.android.gms.wearable.Wearable;
 import com.google.android.gms.wearable.WearableListenerService;
 
+import org.apache.commons.lang3.SerializationUtils;
+
 /**
 Somewhat based of joleary's Catnip app.
 
@@ -41,11 +43,7 @@ public class WatchToPhoneService extends WearableListenerService implements Goog
 
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
-        System.out.println("WATCH RECEIVED MESSAGE");
-        System.out.println("WATCH RECEIVED MESSAGE");
-        System.out.println("WATCH RECEIVED MESSAGE");
-        System.out.println("WATCH RECEIVED MESSAGE");
-        System.out.println("WATCH RECEIVED MESSAGE");
+        System.out.println("Watch received a message.");
 
         path = messageEvent.getPath();
         message = messageEvent.getData();
@@ -62,11 +60,16 @@ public class WatchToPhoneService extends WearableListenerService implements Goog
             Toast.makeText(getBaseContext(), "Communication Successful!!!",
                     Toast.LENGTH_SHORT).show();
 
+            DataWrapper dataWrapper = (DataWrapper) SerializationUtils.deserialize(message);
+
             Intent start = new Intent(this, MainActivity.class);
+            start.putExtra("REPRESENTATIVES", dataWrapper);
+
             start.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             startActivity(start);
         }
+
     }
 
     public void sendMessage(String path, String text, Context context) {
@@ -81,10 +84,8 @@ public class WatchToPhoneService extends WearableListenerService implements Goog
 
     }
 
-
     @Override
     public void onConnected(Bundle bundle) {
-        System.out.println("connected");
         System.out.println("connected");
 
         System.out.println("WATCH CONNECTS TO PHONE");

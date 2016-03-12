@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:elevation ="8dp"
-    android:layout_marginLeft="6dp"
-    android:layout_marginRight="6dp"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
-    android:background="@drawable/bg_card"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin = "10dp"
     >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:elevation="8dp"
+    android:background="@drawable/bg_card">
 
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -20,19 +25,33 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/rep_marco_rubio"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#D3D3D3"
+
 
         />
 
     <!-- title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SENATOR"
+        android:layout_marginTop="15dp"
+        android:textColor="#383838"
 
+        android:id="@+id/representativeTitle"
+        android:textSize="15sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@+id/representativeName"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="25sp"
         android:id="@+id/representativeName"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="36dp"
         android:text="Marco Rubio"
-        android:textColor="#000000"
+        android:textColor="#383838"
         android:gravity="center"
         android:layout_toRightOf="@+id/item_icon"
         />
@@ -55,36 +74,32 @@
         android:paddingLeft="0dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="10dp"
         android:layout_below="@+id/item_icon"
         android:layout_alignLeft="@+id/item_icon"
         />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/sample_tweet"
         android:id="@+id/tweetTextView"
-        android:textColor="#000000"
-        android:layout_alignLeft="@+id/badge"
-        android:layout_alignStart="@+id/badge"
-        android:layout_below="@+id/item_icon"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#383838"
+        android:textSize="12sp"
         android:layout_toRightOf="@+id/twitterImage"
-        android:layout_alignRight="@+id/representativeName"
-        android:paddingRight="8dp"
-         />
+        android:layout_alignTop="@+id/twitterImage"
+        android:layout_alignEnd="@+id/representativeName" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:weightSum="1"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/tweetTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp">
+        android:layout_alignStart="@+id/item_icon">
 
 
         <ImageButton
@@ -119,3 +134,4 @@
     <!-- counter -->
 
 </RelativeLayout>
+</LinearLayout>
